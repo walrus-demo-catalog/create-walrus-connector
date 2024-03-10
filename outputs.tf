@@ -32,4 +32,5 @@ output "env_type" {
 output "kubeconfig" {
   value       = var.kubeconfig
   description = "The content of Kubernetes kubeconfig"
+  sensitive   = true
 }
