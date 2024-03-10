@@ -6,6 +6,7 @@ output "walrus_url" {
 output "walrus_token" {
   value       = var.walrus_token
   description = "API Token for authenticating with the Walrus server"
+  sensitive   = true
 }
 
 output "arch" {
