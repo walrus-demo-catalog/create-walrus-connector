@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template create-walrus-connector
+components:
+  schemas:
+    variables:
+      type: object
+      required:
+      - k8s_connector_name
+      - kubeconfig
+      - walrus_token
+      properties:
+        walrus_url:
+          title: Walrus URL
+          type: string
+          description: URL of the Walrus server
+          default: https://localhost
+          x-walrus-ui:
+            group: Walrus
+            order: 1
+        walrus_token:
+          title: Walrus Token
+          type: string
+          description: API Token for authenticating with the Walrus server
+          x-walrus-ui:
+            group: Walrus
+            order: 2
+        arch:
+          title: Arch
+          type: string
+          description: The underlying architecture on which the walrus server runs
+          default: amd64
+          enum:
+          - amd64
+          - arm64
+          x-walrus-ui:
+            group: Walrus
+            order: 3
+        os:
+          title: OS
+          type: string
+          description: The underlying OS on which the walrus server runs
+          default: linux
+          enum:
+          - linux
+          - darwin
+          - windows
+          x-walrus-ui:
+            group: Walrus
+            order: 4
+        k8s_connector_name:
+          title: K8s Connector Name
+          type: string
+          description: Name of the Kubernetes connector
+          x-walrus-ui:
+            group: Kubernetes
+            order: 5
+        env_type:
+          title: Environment Type
+          type: string
+          description: The environment type of the Kubernetes connector
+          default: development
+          enum:
+          - development
+          - staging
+          - production
+          x-walrus-ui:
+            group: Kubernetes
+            order: 6
+        kubeconfig:
+          title: Kubeconfig
+          type: string
+          description: The content of Kubernetes kubeconfig
+          x-walrus-ui:
+            group: Kubernetes
+            order: 7
+            widget: TextArea
+        executed_repeatedly:
+          title: Executed Repeatedly
+          type: boolean
+          description: Allow command to be executed repeatedly.
+          default: true
+          x-walrus-ui:
+            group: Basic
+            order: 8
+            hidden: true
+      x-walrus-ui:
+        groupOrder:
+        - Walrus
+        - Kubernetes
