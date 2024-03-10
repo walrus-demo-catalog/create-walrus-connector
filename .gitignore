@@ -15,3 +15,4 @@ providers.tf
 .DS_Store
 kubeconfig.temp
 kubeconfig
+create_walrus_connector.sh
